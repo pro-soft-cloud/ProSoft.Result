@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>ProSoft Result</Title>
+    <Version>0.1.5</Version>
+    <Copyright>ProSoft 2026</Copyright>
+    <PackageProjectUrl>https://github.com/Mirco-Kaffsach/ProSoft.Result</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Mirco-Kaffsach/ProSoft.Result</RepositoryUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageIcon>logo.png</PackageIcon>
+    <Description>ProSoft Result Pattern</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="assets/logo.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+</Project>
