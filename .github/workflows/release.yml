@@ -1,0 +1,39 @@
+name: Release Build & Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack (Release)
+        run: |
+          dotnet pack ProSoft.Result/ProSoft.Result.csproj \
+            --configuration Release \
+            --no-build \
+            --output ./artifacts
+
+      - name: Publish to NuGet Feed
+        run: |
+          dotnet nuget push ./artifacts/*.nupkg \
+            --source https://nuget.ps-net.online/v3/index.json \
+            --api-key ${{ secrets.NUGET_API_KEY_PRO_SOFT_FEED }} \
+            --skip-duplicate
