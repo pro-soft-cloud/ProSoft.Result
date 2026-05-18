@@ -13,10 +13,10 @@ namespace ProSoft.Result;
 public sealed class Result<TData> : IDisposable, IAsyncDisposable where TData : class
 {
 	/// <summary>
-	/// Gets or sets the item.
+	/// Gets or sets the data.
 	/// </summary>
-	/// <value>The item.</value>
-	public TData? Item { get; set; }
+	/// <value>The data.</value>
+	public TData? Data { get; set; }
 
 	/// <summary>
 	/// Gets or sets the status.
@@ -71,7 +71,7 @@ public sealed class Result<TData> : IDisposable, IAsyncDisposable where TData : 
 	/// <param name="data">The data.</param>
 	public Result(TData data)
 	{
-		Item = data;
+		Data = data;
 	}
 
 	/// <summary>
@@ -81,7 +81,7 @@ public sealed class Result<TData> : IDisposable, IAsyncDisposable where TData : 
 	/// <param name="status">The status.</param>
 	public Result(TData data, ResultStatus status)
 	{
-		Item = data;
+		Data = data;
 		Status = status;
 	}
 
@@ -103,7 +103,7 @@ public sealed class Result<TData> : IDisposable, IAsyncDisposable where TData : 
 	private void ReleaseManagedResources()
 	{
 		// Release managed resources here
-		Item = null;
+		Data = null;
 	}
 
 	/// <summary>

@@ -6,17 +6,22 @@
 public enum ResultStatus
 {
 	/// <summary>
-	/// The success
+	/// Successfully completed with messages only of type info or hint
 	/// </summary>
 	Success = 1,
 
 	/// <summary>
+	/// Successfully completed but with messages higher than info
+	/// </summary>
+	SuccessWithMessages = 2,
+
+	/// <summary>
 	/// The partial success
 	/// </summary>
-	PartialSuccess = 2,
+	PartialSuccess = 3,
 
 	/// <summary>
 	/// The failure
 	/// </summary>
-	Failure = 3
+	Failure = 4
 }

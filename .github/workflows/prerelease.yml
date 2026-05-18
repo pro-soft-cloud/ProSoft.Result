@@ -1,0 +1,46 @@
+name: PreRelease Build & Publish
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+
+      - name: Generate version suffix
+        id: version
+        run: |
+          SUFFIX="dev-$(date -u +'%y%m%d%H%M%S')"
+          echo "suffix=$SUFFIX" >> $GITHUB_OUTPUT
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack (PreRelease)
+        run: |
+          dotnet pack ProSoft.Result/ProSoft.Result.csproj \
+            --configuration Release \
+            --no-build \
+            --output ./artifacts \
+            --version-suffix ${{ steps.version.outputs.suffix }}
+
+      - name: Publish to self-hosted NuGet Feed
+        run: |
+          dotnet nuget push ./artifacts/*.nupkg \
+            --source https://nuget.ps-net.online/v3/index.json \
+            --api-key ${{ secrets.NUGET_API_KEY_PRO_SOFT_FEED }} \
+            --skip-duplicate

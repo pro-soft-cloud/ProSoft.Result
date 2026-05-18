@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".github/workflows/prerelease.yml" />
+  </Folder>
   <Project Path="ProSoft.Result/ProSoft.Result.csproj" />
 </Solution>
