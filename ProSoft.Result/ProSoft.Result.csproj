@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Title>ProSoft Result</Title>
-    <Version>0.2.0</Version>
+    <VersionPrefix>1.0.0</VersionPrefix>
     <Copyright>ProSoft $([System.DateTime]::Now.Year)</Copyright>
     <PackageProjectUrl>https://github.com/Mirco-Kaffsach/ProSoft.Result</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Mirco-Kaffsach/ProSoft.Result</RepositoryUrl>
@@ -16,7 +16,7 @@
     <AssemblyTitle>ProSoft.Result</AssemblyTitle>
     <RootNamespace>ProSoft.Result</RootNamespace>
     <PlatformTarget>x64</PlatformTarget>
-    <AssemblyVersion>$(Version).0</AssemblyVersion>
+    <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
     <FileVersion>$(AssemblyVersion)</FileVersion>
     <PackageIcon>./assets/ProSoft-nugetPackageLogo.png</PackageIcon>
   </PropertyGroup>
