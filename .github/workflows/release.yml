@@ -7,7 +7,9 @@ on:
 
 jobs:
   build-and-publish:
-    runs-on: self-hosted
+    runs-on:
+      group: homelab-build
+      labels: self-hosted
 
     steps:
       - name: Checkout
