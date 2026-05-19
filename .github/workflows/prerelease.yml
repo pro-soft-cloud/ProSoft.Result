@@ -8,8 +8,7 @@ on:
 jobs:
   build-and-publish:
     runs-on:
-      group: homelab-build
-      labels: self-hosted
+      labels: [ubuntu-latest]
 
     steps:
       - name: Checkout
