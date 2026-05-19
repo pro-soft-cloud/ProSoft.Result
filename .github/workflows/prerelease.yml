@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-publish:
-    runs-on: [self-hosted, Linux, X64, docker, dotnet, prosoft]
+    runs-on: self-hosted
 
     steps:
       - name: Checkout
