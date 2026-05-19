@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-publish:
     runs-on:
-      labels: [ubuntu-latest]
+      labels: [self-hosted]
 
     steps:
       - name: Checkout
