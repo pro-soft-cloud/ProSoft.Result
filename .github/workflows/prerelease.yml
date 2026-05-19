@@ -8,8 +8,7 @@ on:
 jobs:
   build-and-publish:
     runs-on:
-      group: homelab-build
-      labels: [docker,dotnet,prosoft]
+      labels: [ubuntu-latest]
 
     steps:
       - name: Checkout
