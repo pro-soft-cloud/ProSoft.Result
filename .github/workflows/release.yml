@@ -9,7 +9,7 @@ jobs:
   build-and-publish:
     runs-on:
       group: homelab-build
-      labels: self-hosted
+      labels: [docker,dotnet,prosoft]
 
     steps:
       - name: Checkout
