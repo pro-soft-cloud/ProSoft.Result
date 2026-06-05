@@ -40,8 +40,10 @@ jobs:
             --version-suffix ${{ steps.version.outputs.suffix }}
 
       - name: Publish to self-hosted NuGet Feed
+        env:
+          NUGET_API_KEY_PRO_SOFT_FEED: ${{ secrets.NUGET_API_KEY_PRO_SOFT_FEED }}
         run: |
           dotnet nuget push ./artifacts/*.nupkg \
             --source https://nuget.ps-net.online/v3/index.json \
-            --api-key ${{ secrets.NUGET_API_KEY_PRO_SOFT_FEED }} \
+            --api-key "$NUGET_API_KEY_PRO_SOFT_FEED" \
             --skip-duplicate
