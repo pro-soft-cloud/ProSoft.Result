@@ -63,9 +63,10 @@ public sealed class Result<TData> where TData : class
 	/// Initializes a new instance of the <see cref="Result{TData}"/> class.
 	/// </summary>
 	/// <param name="data">The data.</param>
-	public Result(TData data)
+	public Result(TData? data)
 	{
 		Data = data;
+		Status = ResultStatus.Success;
 	}
 
 	/// <summary>
@@ -73,9 +74,22 @@ public sealed class Result<TData> where TData : class
 	/// </summary>
 	/// <param name="data">The data.</param>
 	/// <param name="status">The status.</param>
-	public Result(TData data, ResultStatus status)
+	public Result(TData? data, ResultStatus status)
 	{
 		Data = data;
 		Status = status;
+	}
+
+	/// <summary>
+	/// Initializes a new instance of the <see cref="Result{TData}"/> class.
+	/// </summary>
+	/// <param name="data">The data.</param>
+	/// <param name="status">The status.</param>
+	/// <param name="messages">The messages.</param>
+	public Result(TData? data, ResultStatus status, List<Message> messages)
+	{
+		Data = data;
+		Status = status;
+		Messages = messages;
 	}
 }
